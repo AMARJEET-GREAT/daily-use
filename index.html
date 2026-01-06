@@ -1,277 +1,891 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-    <head>
-         <meta charset="UTF-8" /> 
-         <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-         <title>All Calculators</title>
-          <style>
-           * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
-            body {display: flex; min-height: 100vh; background: linear-gradient(135deg, #e3f2fd, #f5f7ff); transition: margin-left 0.3s; }
-             /* Header */ header { position: fixed; top: 0; left: 0; width: 100%; background: linear-gradient(135deg, #5b73e8, #bede20ff); color: white; padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); z-index: 1000; }
-              
-             header h1 { font-size: 22px; font-weight: 600; letter-spacing: 1px; color:#f5f5f5;text-decoration: none; } 
-             .toggle-btn { background: #fff; color: #5b73e8; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-              .toggle-btn:hover { background: #eceaff; }
-              /* Sidebar */ .sidebar { width: 250px; background: linear-gradient(180deg, #5b73e8, #17d39aff); color: #fff; position: fixed; top: 60px; left: 0; height: calc(100vh - 60px); padding-top: 20px; transition: left 0.3s ease; overflow-y: auto; box-shadow: 3px 0 10px rgba(0,0,0,0.2); } 
-              .sidebar.hide { left: -250px; }
-              .sidebar h2 { text-align: center; margin-bottom: 20px; font-size: 22px; } 
-              .sidebar ul { list-style: none; padding: 0; } .sidebar ul li { padding: 15px 25px; cursor: pointer; transition: 0.3s; } 
-              .sidebar ul li:hover { background: rgba(255, 255, 255, 0.15); transform: translateX(5px); }
-              .sidebar ul li a { text-decoration: none; color: white; display: block; font-weight: 500; } /* Main Content */ 
-              .main  {width: 300px; margin-left: 250px; margin-top: 80px; padding: 25px; flex: 1; transition: margin-left 0.3s ease; } 
-              .main.full { margin-left: 0; }
-              .card { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-              /* Grid of Calculators */
-               .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; animation: fadeIn 1s ease; width: 50%; text-align: center;}
-                @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-                 .card { background: #ffffff; border-radius: 16px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); padding: 20px 10px; text-align: center; cursor: pointer; text-decoration: none; color: #333; transition: all 0.3s ease; } 
-                 .card:hover { transform: translateY(-8px); background: linear-gradient(135deg, #5b73e8, #7b3fe4); color: white; box-shadow: 0 10px 18px rgba(91, 115, 232, 0.4); }
-                 .card h3 { font-size: 18px; margin-bottom: 10px; }
-                  .card p { font-size: 14px; color: #555; } 
-                  .card:hover p { color: #f5f5f5; } @media (max-width: 768px) { 
-                    .sidebar { width: 220px; left: -220px; } 
-                    .sidebar.hide { left: 0; }
-                     .main { margin-left: 0; } 
-                     .main.full { margin-left: 0; } } 
-                    
-                     </style>
-                      </head>
-                      <body>
-                        <header> 
-                            <a style="text-decoration:none" class="navbar-brand fw-bold" href="index1.php"><h1>⚙️ tools Hub</h1></a>
-                            <button class="toggle-btn" onclick="toggleSidebar()">☰ Menu</button> 
-                        </header> 
-                        <div class="sidebar" id="sidebar">
-                             <h2>Calculators</h2> 
-                             <ul> 
-                                <li><a href="index.php">🏠 Home</a></li> 
-                                 <li><a href="c.php"> <h1>c language</h1> </a></li>
-                                <li><a href="feet.php">🧓 feetj calculator</a></li> 
-                                <li><a href="feetin.php">⚖️ feet to inch calculator </a></li> 
-                                <li><a href="feetmtr.php">📐 feet to meter calculator</a></li>
-                                 <li><a href="meter.php">⏰ meter calculator</a></li> 
-                                 <li><a href="abc.php">📅 Date Calculator</a></li> 
-                                 <li><a href="world.php">✍️ Word Counter</a></li>
-                                  <li><a href="percentege.php">🔍 percentage calculator</a></li> 
-                                  <li><a href="speed.php">📏 speed checker</a></li> 
-                                  <li><a href="odd.php">📊 odd even calculator</a></li>
-                                  <li><a href="dally.php">📊 dally use converter</a></li>
-                                  
-                                   <li><a href="simpleinterest.html"></a></li>
-                                   <a class="navbar-brand fw-bold" href="index.php">⚙️ tools Hub</a>
-                                 </ul>
-                                 </div>
-                   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#f8fafc;color:#0f172a}
 
-                                 <div class="main" id="main"> 
-                                    <div class="grid"> 
-                                            <a href="index.php" class="card">
-                                             <h3>Age Calculator</h3>
-                                              <p>Find your exact age in years, months, and days.</p> 
-                                            </a>
-                                            <a href="dally.php" class="card">
-                                             <h3>dally use</h3>
-                                              <p>dally use converter</p> 
-                                            </a>
-                                            <a href="abc.php" class="card">
-                                             <h3>Date Calculator</h3>
-                                              <p>Calculate days between two dates.</p> 
-                                            </a>
-                                              <a href="world.php" class="card">
-                                              <h3>Word Counter</h3>
-                                               <p>Count words and characters instantly.</p>
-                                              </a>
-                                               <a href="currncy.php" class="card">
-                                                <h3>c language</h3>
-                                                  <p>learn c language easy way.</p>
-                                                  </a>
-                                                  <a href="energy.php" class="card">
-                                                   <h3>km to miles</h3>
-                                                    <p>convert km to miles.</p>
-                                                    </a>
-                                                    <a href="densite.php" class="card">
-                                                     <h3>miles to km</h3>
-                                                      <p>convert miles to km.</p>
-                                                      </a>
-                                                      <a href="kinematic.php" class="card">
-                                                       <h3>doller to indian rupee</h3>
-                                                        <p>convert doller to indian rupee.</p>
-                                                        </a>
-                                                         <a href="kmmiles.php" class="card">
-                                                          <h3>indian rupee to usd</h3>
-                                                           <p>convert indian rupee to usd.</p>
-                                                           </a>
-                                                            <a href="kmml.php" class="card">
-                                                             <h3>temperature converter</h3>
-                                                              <p>convert temperature celsius to fahrenheit.</p>
-                                                              </a>
-                                                              <a href="meterlight.php" class="card">
-                                                               <h3>moment to kg</h3>
-                                                                <p>convert moment to kg.</p>
-                                                                </a>
-                                                                 <a href="moment.php" class="card">
-                                                                  <h3>kg to moment</h3>
-                                                                   <p>convert kg to moment.</p>
-                                                                   </a>
-                                                                   <a href="volume.php" class="card">
-                                                                  <h3>kg to moment</h3>
+/* HEADER */
+header{background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.logo{font-size:22px;font-weight:700;color:#e11d48}
+.nav-links a{margin:0 10px;text-decoration:none;color:#334155;font-weight:600}
+.auth a{margin-left:10px;text-decoration:none;font-weight:600}
+.login{color:#334155}
+.signup{background:#e11d48;color:#fff;padding:8px 14px;border-radius:6px}
 
-                                                                   <p>convert kg to moment.</p>
-                                                                   </a>
-                                                                   <a href="length.php" class="card">
-                                                                    <h3>length converter</h3>
-                                                                     <p>convert length meter to cm.</p>
-                                                                     </a>
-                                                                     <a href="cmto.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="meightmass.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="viscosity.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="termal.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="tererature.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="surface.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="flatcon.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="heat.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="expansion.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
+/* HERO */
+.hero{max-width:1200px;margin:60px auto 40px;padding:0 20px;text-align:center}
+.hero h1{font-size:34px;margin-bottom:14px}
+.hero p{color:#475569;max-width:800px;margin:auto;font-size:17px}
+
+/* CATEGORY BAR */
+.categories{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:40px 0}
+.categories button{border:none;padding:10px 16px;border-radius:20px;background:#e2e8f0;cursor:pointer;font-weight:600}
+.categories button.active{background:#e11d48;color:#fff}
+
+/* TOOLS GRID *
+.tools{max-width:1200px;margin:auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.tool{background:#fff;border-radius:12px;padding:22px;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:.3s}
+.tool:hover{transform:translateY(-5px)}
+.tool h3{margin-bottom:10px}
+.tool p{font-size:14px;color:#475569}*/
+.badge{background:#22c55e;color:#fff;font-size:12px;padding:3px 8px;border-radius:20px;margin-left:6px}
+
+/* SECTIONS */
+.section{max-width:1200px;margin:80px auto;padding:0 20px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.section h2{font-size:28px;margin-bottom:10px}
+.section p{color:#475569}
+.section img{width:100%;border-radius:12px}
+
+/* PREMIUM */
+.premium{background:#0f172a;color:#fff;padding:60px 20px;text-align:center}
+.premium h2{font-size:30px}
+.premium p{max-width:700px;margin:15px auto;color:#cbd5f5}
+.premium a{display:inline-block;margin-top:20px;background:#e11d48;color:#fff;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:700}
+
+/* FOOTER */
+footer{background:#020617;color:#cbd5e1;padding:40px 20px}
+.footer{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+footer h4{margin-bottom:10px;color:#fff}
+footer a{display:block;color:#cbd5e1;text-decoration:none;font-size:14px;margin:6px 0}
+.copy{text-align:center;margin-top:30px;font-size:14px;color:#94a3b8}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .section{grid-template-columns:1fr}
+}
 
 
-                                             <a href="meter.php" class="card">
-                                             <h3>meter to sentemeter use</h3>
-                                              <p>dally use meter</p> 
-                                            </a>
-                                             <a href="feetin.php" class="card">
-                                             <h3>feet to inche use</h3>
-                                              <p>dally use convert</p> 
-                                            </a>
-                                             <a href="feet.php" class="card">
-                                             <h3>dally feet to inche  use</h3>
-                                              <p>dally use converter</p> 
-                                            </a>
-                                             <a href="feetmtr.php" class="card">
-                                             <h3>dally feet to meter  use</h3>
-                                              <p>dally use converter</p> 
-                                            </a>
-                                             <a href="pdf.php" class="card">
-                                                 <h3>pdf donlwoder</h3> 
-                                                 <p>pdf image and document.</p> 
-                                                </a>
-                                                 <a href="meter.php" class="card">
-                                                     <h3>meter</h3> 
-                                                     <p>meter to legnth.</p>
-                                                     </a> <a href="" class="card">
-                                                         <h3>Time Calculator</h3>
-                                                          <p>Add or subtract time easily.</p> 
-                                                        </a> <a href="odd.php" class="card"> 
-                                                            <h3>odd even </h3>
-                                                             <p>Calculate days between two dates.</p>
-                                                             </a> <a href="speed.php" class="card">
-                                                                 <h3>speed checker</h3>
-                                                                  <p>Count words and characters instantly.</p>
-                                                                 </a> <a href="area.php" class="card">
-                                                                     <h3>area of cricle</h3>
-                                                                      <p>Easily find and replace text.</p>
-                                                                     </a> <a href="feetin.php" class="card">
-                                                                         <h3>feet to inche  Converter</h3>
-                                                                          <p>Convert to feet to inche </p>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f8fafc}
 
-                                                                         </a>
-                                                                          <a href="case.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="change_converter.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="dally.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
-                                                                        <a href="angle.php" class="card">
-                                                                      <h3>cm to meter</h3>
-                                                                       <p>convert cm to meter.</p>
-                                                                       </a>
+/* HEADER */
+.header{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:14px 20px;
+  background:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
 
-                                                                          <a href="percentege.php" class="card">
-                                                                             <h3>Percentage Calculator</h3>
-                                                                              <p>Calculate percentages quickly.</p>
-                                                                             </a> <a href="simpleinterest.html" class="card">
-                                                                                 <h3>Simple Interest</h3>
-                                                                                  <p>Compute simple interest on investments.</p>
-                                                                                 </a> 
-                                                                                 </div> 
-                                                                                 </div> 
-                                                                                 <script>
-                                                                                  function toggleSidebar() {
-                                                                                   const sidebar = document.getElementById('sidebar');
-                                                                                   const main = document.getElementById('main');
-                                                                                    sidebar.classList.toggle('hide');
-                                                                                     main.classList.toggle('full');
-                                                                                       }
+.logo{font-size:22px;font-weight:700;color:#e11d48}
 
-                                                                                       (function(){
-                                                                                         const sidebar = document.getElementById('sidebar');
-                                                                                         const main = document.getElementById('main');
-                                                                                         const toggleBtn = document.querySelector('.toggle-btn');
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
 
-                                                                                         // Close sidebar on small screens when touching/clicking outside
-                                                                                         function closeIfMobileAndOpen(e){
-                                                                                           if (window.innerWidth <= 768) {
-                                                                                             const isOpen = sidebar.classList.contains('hide'); // on mobile .hide = visible
-                                                                                             if (!isOpen) return;
-                                                                                             if (e.target.closest('#sidebar') || e.target.closest('.toggle-btn')) return;
-                                                                                             sidebar.classList.remove('hide');
-                                                                                             main.classList.remove('full');
-                                                                                           }
-                                                                                         }
+/* DESKTOP MENU */
+.menu{display:flex;gap:18px}
 
-                                                                                         document.addEventListener('click', closeIfMobileAndOpen);
-                                                                                         document.addEventListener('touchstart', closeIfMobileAndOpen, { passive: true });
+.menu-item{
+  position:relative;
+  font-weight:600;
+  cursor:pointer;
+}
 
-                                                                                         // Close when a sidebar link is clicked (mobile)
-                                                                                         sidebar.querySelectorAll('a').forEach(a=>{
-                                                                                           a.addEventListener('click', function(){
-                                                                                             if (window.innerWidth <= 768 && sidebar.classList.contains('hide')) {
-                                                                                               sidebar.classList.remove('hide');
-                                                                                               main.classList.remove('full');
-                                                                                             }
-                                                                                           });
-                                                                                         });
+.arrow{font-size:12px;transition:.3s}
 
-                                                                                         // Keep state consistent on resize
-                                                                                         window.addEventListener('resize', function(){
-                                                                                           if (window.innerWidth > 768) {
-                                                                                             sidebar.classList.remove('hide');
-                                                                                             main.classList.remove('full');
-                                                                                           }
-                                                                                         });
+.sub{
+  position:absolute;
+  top:35px;
+  left:0;
+  background:#fff;
+  min-width:180px;
+  border-radius:8px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  display:none;
+}
 
-                                                                                       })();
-                                                                                 </script> 
-                                                                                        </body> 
-                                                                                        </html>
+.sub a{
+  display:block;
+  padding:10px 14px;
+  text-decoration:none;
+  color:#0f172a;
+}
+
+.menu-item.active .sub{display:block}
+.menu-item.active .arrow{transform:rotate(180deg)}
+
+.auth a{margin-left:12px;text-decoration:none;font-weight:600}
+.btn{background:#e11d48;color:#fff;padding:8px 14px;border-radius:6px}
+
+/* SIDEBAR */
+.sidebar{
+  position:fixed;
+  top:0;left:-260px;
+  width:260px;height:100%;
+  background:#0f172a;
+  color:#fff;
+  transition:.3s;
+  z-index:1000;
+}
+
+.sidebar.show{left:0}
+
+.sidebar-header{
+  display:flex;
+  justify-content:space-between;
+  padding:14px;
+  font-weight:700;
+  background:#020617;
+}
+
+.side-item{
+  padding:14px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  cursor:pointer;
+}
+
+.side-item span{float:right}
+
+.side-sub{
+  display:none;
+  padding-left:10px;
+}
+
+.side-sub a{
+  display:block;
+  padding:8px 0;
+  color:#cbd5f5;
+  text-decoration:none;
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  display:none;
+  z-index:999;
+}
+.overlay.show{display:block}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .desktop-menu{display:none}
+  .hamburger{display:block}
+}
+
+/* desktop menu visible only on laptop */
+@media(min-width:769px){
+  .desktop-menu{display:flex}
+}
+
+/* mobile only */
+@media(max-width:768px){
+  .desktop-menu{display:none}
+}
+
+
+/* TOP FIXED HORIZONTAL SCROLLBAR *
+.top-scrollbar{
+  position: sticky;
+  top: 60px; /* header ki height ke hisab se *
+  z-index: 99;
+  background: #020617;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 0;
+}
+
+.top-scrollbar a{
+  display: inline-block;
+  color: #e5e7eb;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.top-scrollbar a:hover{
+  background: #1e293b;
+  border-radius: 6px;
+}
+
+/* scrollbar style *
+.top-scrollbar::-webkit-scrollbar{
+  height: 5px;
+}
+.top-scrollbar::-webkit-scrollbar-thumb{
+  background: #e11d48;
+  border-radius: 10px;
+}*/
+
+
+
+.tools{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;   /* center page */
+}
+
+
+.tool{
+  display:block;
+  padding:20px;
+  border-radius:12px;
+  background:#ffffff;
+  text-decoration:none;
+  color:#222;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:all 0.3s ease;
+}
+
+.tool:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  background:#f4f7ff;
+}
+
+.tool h3{
+  margin-bottom:8px;
+}
+
+.badge{
+  background:#ff5252;
+  color:#fff;
+  font-size:12px;
+  padding:3px 8px;
+  border-radius:6px;
+}
+
+.tool-icon{
+  width:48px;
+  margin-bottom:10px;
+}
+
+</style>
+
+</head>
+<body>
+<header class="header">
+  <!-- MOBILE MENU BUTTON -->
+  <div class="hamburger" onclick="openSidebar()">☰</div>
+
+
+  <div class="logo text-end">PDF Tools</div>
+
+  <!-- DESKTOP MENU -->
+  <nav class="menu desktop-menu">
+    <div class="menu-item">
+      <span class="title">c language <span class="arrow">▼</span></span>
+      <div class="sub">
+        <a href="#">c array</a>
+        <a href="#">c pointer</a>
+        <a href="#">c function</a>
+
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <span class="title">Split PDF <span class="arrow">▼</span></span>
+      <div class="sub">
+        <a href="#">Split pages</a>
+        <a href="#">Extract pages</a>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <span class="title">Compress PDF <span class="arrow">▼</span></span>
+      <div class="sub">
+        <a href="#">High compression</a>
+        <a href="#">Low compression</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="auth desktop-menu">
+    <a href="#">Login</a>
+    <a class="btn" href="#">Sign up</a>
+  </div>
+</header>
+
+<!-- MOBILE SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <span>Menu</span>
+    <span class="close" onclick="closeSidebar()">✖</span>
+  </div>
+
+  <div class="side-item" onclick="toggleSide(this)">
+    Merge PDF <span>▶</span>
+    <div class="side-sub">
+      <a href="#">Merge 2 PDFs</a>
+      <a href="#">Merge Multiple PDFs</a>
+    </div>
+  </div>
+
+  <div class="side-item" onclick="toggleSide(this)">
+    Split PDF <span>▶</span>
+    <div class="side-sub">
+      <a href="#">Split pages</a>
+      <a href="#">Extract pages</a>
+    </div>
+  </div>
+
+  <div class="side-item" onclick="toggleSide(this)">
+    Compress PDF <span>▶</span>
+    <div class="side-sub">
+      <a href="#">High compression</a>
+      <a href="#">Low compression</a>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+
+<!-- TOP HORIZONTAL SCROLL BAR --
+<div class="top-scrollbar">
+  <a href="#">HTML</a>
+  <a href="#">CSS</a>
+  <a href="#">JavaScript</a>
+  <a href="c.html">C</a>
+  <a href="#">C++</a>
+  <a href="#">Java</a>
+  <a href="#">DBMS</a>
+  <a href="#">OS</a>
+  <a href="#">CN</a>
+  <a href="#">Maths</a>
+</div>-->
+
+<!--<header>
+  <div class="nav">
+    <div class="logo">iLovePDF</div>
+    <div class="nav-links">
+      <a href="#">Merge PDF</a>
+      <a href="#">Split PDF</a>
+      <a href="#">Compress PDF</a>
+      <a href="#">Convert PDF</a>
+      <a href="#">All PDF tools</a>
+    </div>
+    <div class="auth">
+      <a href="#" class="login">Login</a>
+      <a href="#" class="signup">Sign up</a>
+    </div>
+  </div>
+</header>-->
+
+<section class="hero">
+  <h1>Every tool you need to work with PDFs in one place</h1>
+  <p>Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.</p>
+</section>
+
+
+
+<!--<div class="categories">
+  <button class="active">All</button>
+  <button>Workflows</button>
+  <button>Organize PDF</button>
+  <button>Optimize PDF</button>
+  <button>Convert PDF</button>
+  <button>Edit PDF</button>
+  <button>PDF Security</button>
+</div>--
+
+<section class="tools">
+  <div class="tool"><h3>Merge PDF</h3><p>Combine PDFs in the order you want with the easiest PDF merger available.</p></div>
+  <div class="tool"><h3>Split PDF</h3><p>Separate one page or a whole set into independent PDF files.</p></div>
+  <div class="tool"><h3>Compress PDF</h3><p>Reduce file size while optimizing for maximal PDF quality.</p></div>
+  <div class="tool"><h3>PDF to Word</h3><p>Convert PDF files into editable Word documents.</p></div>
+  <div class="tool"><h3>Edit PDF <span class="badge">New</span></h3><p>Add text, images, shapes or annotations to a PDF.</p></div>
+  <div class="tool"><h3>Unlock PDF</h3><p>Remove PDF password security easily.</p></div>
+
+
+
+  <div class="tool"><h3>Merge PDF</h3><p>Combine PDFs in the order you want with the easiest PDF merger available.</p></div>
+  <div class="tool"><h3>Split PDF</h3><p>Separate one page or a whole set into independent PDF files.</p></div>
+  <div class="tool"><h3>Compress PDF</h3><p>Reduce file size while optimizing for maximal PDF quality.</p></div>
+  <div class="tool"><h3>PDF to Word</h3><p>Convert PDF files into editable Word documents.</p></div>
+  <div class="tool"><h3>Edit PDF <span class="badge">New</span></h3><p>Add text, images, shapes or annotations to a PDF.</p></div>
+  <div class="tool"><h3>Unlock PDF</h3><p>Remove PDF password security easily.</p></div>
+
+
+
+  <div class="tool"><h3>Merge PDF</h3><p>Combine PDFs in the order you want with the easiest PDF merger available.</p></div>
+  <div class="tool"><h3>Split PDF</h3><p>Separate one page or a whole set into independent PDF files.</p></div>
+  <div class="tool"><h3>Compress PDF</h3><p>Reduce file size while optimizing for maximal PDF quality.</p></div>
+  <div class="tool"><h3>PDF to Word</h3><p>Convert PDF files into editable Word documents.</p></div>
+  <div class="tool"><h3>Edit PDF <span class="badge">New</span></h3><p>Add text, images, shapes or annotations to a PDF.</p></div>
+  <div class="tool"><h3>Unlock PDF</h3><p>Remove PDF password security easily.</p></div>
+</section>-->
+ <h1 class="hool text-center">CALCULATOR TOOLS DAILY USE</h1>
+<section class="tools">
+ 
+  <a href="kmmiles.php" class="tool">
+  <img src="image.png" class="tool-icon">
+ <h3>kmmiles convert</h3>
+  </a>
+
+  <a href="kmml.php" class="tool">
+  <img src="excel.png" class="tool-icon">
+ <h3>kmm convert</h3>
+  </a>
+
+  <a href="angle.php" class="tool">
+  <img src="powerpoint.png" class="tool-icon">
+ <h3>angle convert</h3>
+  </a>
+
+   <a href="area.php" class="tool">
+  <img src="jpg.png" class="tool-icon">
+ <h3>area convert</h3>
+  </a>
+
+<a href="currency.php" class="tool">
+  <img src="cad.png" class="tool-icon">
+ <h3>currency convert</h3>
+  </a>
+
+<a href="case.php" class="tool">
+  <img src="office.png" class="tool-icon">
+ <h3>case convert</h3>
+  </a>
+
+  <a href="excelpdf.php" class="tool">
+    <h3>excel pdf converter </h3>
+    <p></p>
+  </a>
+
+  <a href="feet.php" class="tool">
+    <h3>feet convert</h3>
+    <p>.</p>
+  </a>
+
+  <a href="feetin.php" class="tool">
+    <h3>feet to inche converter</h3>
+    <p></p>
+  </a>
+
+  <a href="feetmtr.php" class="tool">
+    <h3>feet to meter convert</h3>
+    <p></p>
+  </a>
+
+  <a href="energy.php" class="tool">
+    <h3>energy to convert</h3>
+    <p>.</p>
+  </a>
+
+  <a href="add.php" class="tool">
+    <h3>add converter</h3>
+    <p>.</p>
+  </a>
+
+  <a href="moment.php" class="tool">
+    <h3>moment</h3>
+    <p>.</p>
+  </a>
+  <a href="meter.php" class="tool">
+    <h3>meter to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="meterlight.php" class="tool">
+    <h3>meter to light convert</h3>
+    <p>.</p>
+  </a>
+  <a href="percentege.php" class="tool">
+    <h3>percentege to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="speed.php" class="tool">
+    <h3>speed to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="save_book.php" class="tool">
+    <h3>save book to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="volume.php" class="tool">
+    <h3>volume to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="viscosity.php" class="tool">
+    <h3>viscosity to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="surface.php" class="tool">
+    <h3>surface to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="heart.php" class="tool">
+    <h3>heart to convert</h3>
+    <p>.</p>
+  </a>
+  <a href="moment.php" class="tool">
+    <h3>moment</h3>
+    <p>.</p>
+  </a>
+  <a href="moment.php" class="tool">
+    <h3>moment</h3>
+    <p>.</p>
+  </a>
+
+ 
+
+</section>
+
+<h1 class="kool text-center"> ALL PDF CONVERT TOOLS</h1>
+<section class="tools">
+ 
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+  </section>
+
+  <h1 class="kool text-center">tool site  3</h1>
+<section class="tools">
+ 
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+  </section>
+
+
+  <h1 class="kool text-center">tool site  4</h1>
+<section class="tools">
+ 
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+  </section>
+
+  <h1 class="kool text-center">tool site  5</h1>
+<section class="tools">
+ 
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+
+  <a href="merge-pdf.html" class="tool">
+    <h3>Merge PDF</h3>
+    <p>Combine PDFs in the order you want with the easiest PDF merger available.</p>
+  </a>
+
+  <a href="split-pdf.html" class="tool">
+    <h3>Split PDF</h3>
+    <p>Separate one page or a whole set into independent PDF files.</p>
+  </a>
+
+  <a href="compress-pdf.html" class="tool">
+    <h3>Compress PDF</h3>
+    <p>Reduce file size while optimizing for maximal PDF quality.</p>
+  </a>
+
+  <a href="pdf-to-word.html" class="tool">
+    <h3>PDF to Word</h3>
+    <p>Convert PDF files into editable Word documents.</p>
+  </a>
+  </section>
+
+
+<section class="section">
+  <div>
+    <h2>Work your way</h2>
+    <p>Work offline with Desktop, manage documents locally, no internet and no limits.</p>
+  </div>
+  <img src="https://dummyimage.com/600x400/e5e7eb/000000&text=Desktop+App" alt="">
+</section>
+
+<section class="premium">
+  <h2>Get more with Premium</h2>
+  <p>Get full access to iLovePDF, advanced OCR, secure e-Signatures and custom workflows.</p>
+  <a href="#">Get Premium</a>
+</section>
+
+<footer>
+  <div class="footer">
+    <div><h4>Product</h4><a href="#">Home</a><a href="#">Features</a><a href="#">Pricing</a></div>
+    <div><h4>Company</h4><a href="#">About</a><a href="#">Contact</a><a href="#">Blog</a></div>
+    <div><h4>Solutions</h4><a href="#">Business</a><a href="#">Education</a><a href="#">Legal</a></div>
+    <div><h4>Apps</h4><a href="#">Desktop</a><a href="#">Mobile</a><a href="#">API</a></div>
+  </div>
+  <div class="copy">© 2025 PDF Tools – Your PDF Editor</div>
+</footer>
+
+
+<script>
+
+
+// ===== MOBILE SIDEBAR =====
+function openSidebar(){
+  document.getElementById("sidebar").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+}
+
+function closeSidebar(){
+  document.getElementById("sidebar").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+function toggleSide(item){
+  const sub = item.querySelector(".side-sub");
+  sub.style.display = sub.style.display === "block" ? "none" : "block";
+}
+
+
+
+// Desktop menu hover open/close
+document.querySelectorAll(".desktop-menu .menu-item").forEach(item => {
+  let timer;
+
+  // Mouse enter → open menu
+  item.addEventListener("mouseenter", () => {
+    clearTimeout(timer);        // agar leave ke timer chal raha ho to cancel
+    item.classList.add("active"); // add active class → show dropdown
+  });
+
+  // Mouse leave → auto close after short delay
+  item.addEventListener("mouseleave", () => {
+    timer = setTimeout(() => {
+      item.classList.remove("active"); // remove active class → hide dropdown
+    }, 200); // 200ms delay for smooth experience
+  });
+});
+
+
+
+//like//
+const buttons = document.querySelectorAll(".categories button");
+const contents = document.querySelectorAll(".category-content");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // Remove active from all buttons
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    // Hide all contents
+    contents.forEach(c => c.classList.remove("active"));
+
+    // Show target content
+    const targetId = btn.getAttribute("data-target");
+    document.getElementById(targetId).classList.add("active");
+  });
+});
+
+
+</script>
+
+
+
+
+</body>
+</html>
